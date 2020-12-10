@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        숫자(number) - 자바스크립트에서는 큰 따옴표나 작은따옴표가 붙지 않은 숫자는 숫자로 인식
+        정수 - -9999....~9999....
+        실수 - 소수점이 존재하는 숫자
+        alert - 경고창을 표시해주는 함수
+    -->
+    <script>
+        //숫자--------------------------------------------------------------------------------
+        //Math라는 함수 안에 있는 pow를 가져오라고 할 때
+        //pow는 앞에 있는 수에서 뒤에 있는 수를 제곱
+        //round는 반올림 ceil은 올림 floor은 내림
+        //random은 난수
+        Math.pow(3, 2);
+        Math.round(10.6);
+        Math.ceil(10.3);
+        Math.floor(10.2);
+        Math.random();
+        console.log(Math.round(100 * Math.random()));
+        //문자--------------------------------------------------------------------------------
+        //문자는 작은따옴표나 큰따옴표 사이에 있어야 한다.
+        //'',""은 이 사이에 있는 것은 문자야.라는 뜻
+        // \뒤에 있는 문자 하나는 정보가 아닌 문자로 해석이 된다. =>escape
+        alert("codding everybody");
+        alert('codding\neverybody'); // \n은 줄바꿈
+        alert('codding\' everybody');
+
+        // 1과 "1"의 차이점 앞에 1은 숫자 뒤에 1은 문자
+        // typeof는 뒤에 있는 것의 형식을 알려줌
+        typeof 1; // => number
+        typeof "1"; // => string
+
+        //문자와 문자의 더함
+        alert("오" + " " + "현우");
+
+        "오현우".length //문자의 개수 => 3
+    </script>
+</body>
+
+</html>

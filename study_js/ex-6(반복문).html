@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //반복문(loop,iterate)
+        //while, for
+        /* while(조건 boolean타입){
+            반복해서 실행할 코드
+            언제까지 반복? ->조건이 true에서 false로 바뀔 때 까지
+        }*/
+        //document.write는 html형식으로 사용할 수 있게 만들어 주는 것
+        var i = 0;
+        while (i < 10) {
+            document.write("오현우" + i + "<br />");
+            i = i + 1;
+        }
+        //for문의 구성 조건 초기화, 조건(true,false)
+        // i = i + 1 == i++
+        // i++와 ++i의 차이
+        // ++i는 i를 증가시킨 뒤 사용 i++는 기존값을 사용 후 증가
+        for (i = 0; i < 10; i = i + 1) {
+            document.write("오현우" + i + "<br />");
+        }
+
+        //반복문의 제어 break, continue
+        for (i = 0; i < 10; i = i + 1) {
+            if (i === 5) {
+                break; //break는 5일 경우 멈추는 것
+                continue; //반복문이 계속 되다가 continue를 만나면 한번 멈춘 다음 반복
+            }
+            document.write("오현우" + i + "<br />");
+        }
+
+        //반복문의 중첩
+        for (i = 0; i < 10; i++) {
+            for (j = 0; j < 10; j++) {
+                document.write("오현우" + i + j + "<br />");
+            }
+        }
+    </script>
+</body>
+
+</html>

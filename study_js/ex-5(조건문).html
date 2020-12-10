@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //if문 if(true & false){}
+
+        //if else if가 true일 경우에는 어떤 일을 하고 false일 때는 어떤 것을 한다
+
+        //else if는 앞쪽에 있는 if가 실행되지 않을 때 
+        if (false) {//false가 나왔기 때문에 다음 조건으로 넘어감
+            alert(1)
+        } else if (true) { //ture값이 나왔기 때문에 뒤에 있는 else는 실행이 안됨 결론적으로 이 if문의 결과 값은 2
+            alert(2)
+        } else if (true) {
+            alert(3)
+        } else if (true) {
+            alert(4)
+        }
+
+        //prompt();는 경고창 대신 prompt값을 집어넣을 수 있다.
+        alert(prompt()); //prompt값이 먼저 나온 뒤 alert값이 출력
+        var id = prompt('아이디를 입력해 주세요');
+
+        if (id == 'bomul1230') {
+            var password = prompt('비밀번호를 입력해 주세요')
+            if (password == 1111) {
+                alert('로그인 하셨습니다.' + id + '님 반갑습니다.')
+            } else {
+                alert('비밀번호가 일치하지 않습니다.')
+            }
+        } else {
+            alert('아이디가 일치하지 않습니다.');
+        }
+
+        // && = and 좌항과 우항의 조건에 맞았을 때 실행
+        // 여러개의 &&를 사용 가능
+        var id = prompt('아이디를 입력해 주세요');
+        var password = prompt('비밀번호를 입력해 주세요');
+
+        if (id == 'bomul1230' && password === '1111') {
+            alert('로그인에 성공하셨습니다');
+        } else {
+            alert('로그인에 실패하셨습니다');
+        }
+
+        // || = or 좌항과 우항이 하나라도 ture가 된다면 둘다 true가 된다.  
+
+        var id = prompt('아이디를 입력해 주세요');
+        if (id == 'bomul1230' || id == 'bless1230' || id == 'bomul0123') {
+            alert('이미 존재하는 아이디입니다.');
+        } else {
+            alert('사용 가능한 아이디입니다.');
+        }
+
+        //false로 간주되는 데이터 형
+        //빈 문자형일 경우 ex)if('')
+        //undefined일 경우 ex)if(undefined)
+        //null일 경우 ex)if(null)
+        //non일 경우 ex)if(non)
+    </script>
+</body>
+
+</html>
