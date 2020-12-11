@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //배열이란 연관된 데이터를 모아서 통으로 관리하기 위해서 사용하는 데이터 타입
+        //변수는 하나의 데이터를 저장하기 위한 것이라면 배열은 여러개의 데이터를 하나의 변수에 저장하기 위한 것
+        //배열은 저장된 순으로 순서를 가지고 있다.
+
+        //member라는 그릇에 3개의 정보가 들어가 있는데 그 정보를 원소라고 한다. 이 순서를 0부터 값(index)을 부여
+        var member = ['ohw', 'ohw1', 'ohw2', "ohw3"];
+        alert(member);
+
+        //배열의 길이를 찾고 싶을 때 .length를 사용
+        member.length;
+
+        //배열의 호출 방법
+        alert(member[2]);
+
+        document.write(member[0].toUpperCase() + "<br />");
+        document.write(member[1].toUpperCase() + "<br />");
+        document.write(member[2].toUpperCase() + "<br />");
+
+        //배열과 반복문의 결합
+        for (var i = 0; i < member.length; i++) {
+            document.write(member[i].toUpperCase() + "<br />");
+        }
+
+        //배열의 제어
+        //li는 현재 배열
+        var li = ['a', 'b', 'c', 'd', 'e', 'f',];
+        //배열.push는 배열 안에다가 어떤 정보를 밀어넣는다. 하나의 값을 추가.
+        li.push('f');
+
+        //concat은 여러가지 값을 추가할 때
+        li = li.concat(['a1', 'a2']);
+
+        //unshift는 배열 순서중에서 가장 앞에 밀어넣고 싶을 때
+        li = li.unshift('z');
+
+        //solice 중간에 넣고싶을 때  li.splice(index(배열에 추가할 특정 위치),howmany(index에서 제거될 원소들의 수 0이면 삭제되지 않는다.),index와 howmany 사이에 추가될 값.)
+        li = li.splice(1, 0, 'f');
+
+        //배열의 첫번째 원소 제거 shift
+        li.shift();
+
+        //배열의 마지막 원소 제거 pop
+        li.pop();
+
+        //배열을 알파벳순으로 정리 sort
+        li.sort();
+
+        //배열을 알파벳 역순으로 정리 reverse
+        li.reverse();
+    </script>
+</body>
+
+</html>
