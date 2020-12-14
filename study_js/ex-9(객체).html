@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //객체(object)
+        //배열과 유사한 역할 서로 연관되어 있는 것을 담아내는 그릇
+        //객체와 배열의 차이점
+        //인덱스로 원하는 숫자나 문자를 넣을 수 있는 것이 가시적인 차이점
+        //객체를 대표하는 변수를 만든 다음 중괄호로 시작
+        //객체를 만드는 다양한 방법
+        //ohw1 = key 10 = value
+        var grades = { 'ohw1': 10, 'ohw2': 20, 'ohw3': 30 };
+
+        var grades2 = {};
+        grades2['ohw1' = 40];
+        grades2['ohw2' = 70];
+        grades2['ohw3' = 90];
+
+        //new Object(); = {};
+        var grades3 = new Object();
+        grades3['ohw1' = 100];
+        grades3['ohw2' = 120];
+        grades3['ohw3' = 150];
+
+        // 객체 호출 방법
+
+        grades3['ohw1']; //가능
+        grades3['oh' + '+1']; //가능
+        grades3.ohw1; //가능
+        // grades3.'oh' + '01'; //불가능
+
+        //반복문을 통한 객체 만들기
+
+        var ohw = ['a', 'b', 'c'];
+        for (var i = 0; i < ohw.length; i++) {
+            document.write(ohw[i]);
+        };
+
+        //배열은 저장된 순으로 순서가 있지만
+        //객체는 순서가 없이 key와 value로 객체 안에 저장
+
+        //for in문 앞쪽에는 그 객체의 key값 뒤쪽에는 객체
+        //grades4라는 변수가 가르키는 그릇에 담겨있는 값들을 하나씩 가져와서 key값에 담는 것
+        //여기서 key값은 'ohw1':200이 아니라 ohw1만 담는 것
+        //key값 호출 : key(변수) value값 호출 : 변수[key(변수)]
+        //in 앞에 있는 변수는 다른 이름으로도 변경 가능
+        var grades4 = { 'ohw1': 200, 'ohw2': 220, 'ohw3': 230 };
+        for (var key in grades4) {
+            document.write("<li> key :" + " " + key + " " + "value :" + grades4[key] + "</li>");
+        }
+
+        //this는 함수가 소속되어 있는 객체 
+        var grades5 = {
+            'list': { 'bomul': 10, 'bless': 20, 'mylollipop': 30 },
+            'show': function () {
+                for (var name in grades5) {
+                    console.log(name, this.list[name]);
+                }
+            }
+        }
+        //객체지향프로그래밍 : 서로 연관되어 있는 데이터나 처리를 하나의 그룹 안에 그룹핑하는 기법
+        //grades5라는 객체 안에 있는 show라는 함수를 보여주세요
+        grades5.show();
+
+
+    </script>
+</body>
+
+</html>
