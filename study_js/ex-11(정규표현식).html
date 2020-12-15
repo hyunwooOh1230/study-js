@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //정규표현식은 문자열에서 특정한 문자를 찾아내는 도구
+        //컴파일 : 필요한 패턴(대상)을 찾는 것
+        //실행 : 그 대상을 구체적으로 하는 것
+
+        //정규표현식으로 할 수 있는 일
+        //1.어떤 패턴을 만들면 그 패턴에 해당되는 정보를 추출
+        //2.자신이 확인하고자 하는 정보의 유무 테스트
+        //3.우리가 사전에 있던 정보를 다른 정보로 치환
+
+        //정규표현식 리터럴
+        var str = "a";
+        var pattern = /a/;
+
+        //정규표현식 패턴 생성자
+        //우리가 찾고자 하는 패턴이 a를 찾을 때
+        var pattern = new RegExp('a');
+        pattern.exec('abcde'); //=>["a"]
+
+        var pattenr = /a./; //여기서 .은 하나의 문자
+        pattenr.exec('abcde'); //=>["ab"]
+
+        var pattern = /a/;
+        pattern.exec('bcde'); //=> null 찾고자 하는 문자가 없기 때문에 
+
+        //※exec는 정규 표현식 안에서 찾고자 하는 대상을 첫번째 인자로 전달해서 이 패턴이 찾는 정보를 대상에서 찾아서 그것이 있다면 배열로 리턴하는 함수, 메소드
+
+        //test는 정규 표현식 안에서 찾고자 하는 대상이 있는 경우 true 없으면 false
+        var pattern = /a/;
+        pattern.test('abcde'); //=>true
+        pattern.test('bcde'); //=>false
+
+        var pattern = /a/;
+        var str = 'abcdef';
+        str.match(pattern); //=>["a"]
+
+        var str = 'bcdef'
+        str.match(pattern); //=>null
+
+        var str = 'abcdef';
+        str.replace(pattenr, 'A')//=>"Abcdef"
+
+        //정규표현식 패턴을 만들 때 옵션의 설정
+
+        //i는 패턴에서 대문자 소문자를 구별하지 않게 설정
+        var xi = /a/;
+        "Abcde".match(xi); //=>null
+
+        var oi = /a/i;
+        "Abcde".match(oi); //=>["A"]
+
+        //g는 이 문자열의 패턴에 해당되는 문자열들을 전부 배열에 담아서 표현
+
+        var xg = /a/;
+        "abcdea".match(xg); //=>["a"]
+
+        var og = /a/g;
+        "abcdea".match(og); //=>["a","a"]
+
+        //중복하여 사용도 가능
+
+        var ig = /a/ig; //=>패턴을 찾는데 대소문자를 구분하지 않고 패턴해 해당되는 모든 문자열을 전부 배열에 담아서 표현해 주세요 라는 뜻.
+
+        "AabcdAa".match(ig); //=>["A","a","A","a"]
+
+        // ()는 그룹
+        // \w = 문자를 의미(a~z, A~Z, 0~9) #,^는 해당 X
+        // +는 수량자 앞에 있는 문자가 하나 이상일 경우 유효 
+        // \s = 공백 
+
+        var pattern = /(\w+)\s(\w+)/;
+        //따라서 위의 식은 ※문자 공백문자 ex) hello everyone
+        //https://regexr.com/ 정규표현식 확인
+
+        var str = "hello ohw";
+        //$는 패턴에서 그룹을 의미 $1는 첫번째 그룹 $2는 두번째 그룹
+        var result = str.replace(pattern, "$2, $1"); //=> ohw, hello
+    </script>
+</body>
+
+</html>
