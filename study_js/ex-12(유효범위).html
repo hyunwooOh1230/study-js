@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //전역변수를 확실히 사용해야 할 때가 아니면 최대한 지역변수만을 사용한다. 또한 var도 꼭 사용할 것
+        //자바스크립트의 지역변수는 함수에서만 유효하다.
+
+        //유효범위(scope)는 변수의 수명을 의미
+        //지역변수(local variable)와 전역변수(global variable). 
+        var ohw = 'good'; //전역변수 => 자바스크립트 전체 구역에서 사용할 수 있는 변수
+        function scope() {
+            var ohw = 'global'; //지역변수 => 함수 안쪽에서만 정의된 변수
+            alert(ohw); //ohw를 호출할 때 가장 가까운 ohw를 호출 따라서 global이 호출된다.
+        }
+        scope();
+
+        //전역변수
+        var test = 'good';
+        function global_variable() {
+            alert(test);
+        }
+        function global_variable2() {
+            alert(test);
+        }
+        global_variable(); //결과값 good
+        global_variable2(); //결과값 good
+
+        //지역변수
+        function local_variable() {
+            var local_test = 'hello';
+            alert(local_test);
+        }
+        local_variable(); //결과값 hello
+        alert(local_test); //결과 값 undefined
+
+        //var의 유무
+        //var이 있을 경우
+        var global_variable = 'global';
+        function scope() {
+            var global_variable = 'local';
+            //이 global_variable는 이 함수 안에서 만들어진 지역변수
+        }
+        scope();
+        alert(global_variable); //결과 값 global
+
+        //var이 없을 경우
+        var global_variable = 'global';
+        function scope() {
+            global_variable = 'local';
+            //이 global_variable변수는 전역변수에서 가져온 변수
+        }
+        scope();
+        alert(global_variable); //결과 값 local
+
+        var myapp = {}; //해석:전역변수 myapp은 객체. 자기만의 객체를 만들어서 속성을 사용하면 변수가 겹칠 일이 적어진다.
+        myapp.calculator = {
+            'left': null,
+            'right': null
+        }
+        myapp.coordinate - {
+            'left': null,
+            'right': null
+        }
+        myapp.calculator.left = 20;
+        myapp.calculator.right = 30;
+        function sum() {
+            return myapp.calculator.left + myapp.calculator.right;
+        }
+        document.write(sum());
+
+        //정적 유효범위
+        var i = 5; //전역변수
+        function a() {
+            var i = 10; //지역변수
+            b();
+        }
+        function b() {
+            document.write(i); //여기서 i는 우선 함수 b안의 지역변수 i를 찾는다. 지역변수 i가 없는 것을 확인한 후 전역변수 i인 5가 들어가게 된다. 이유는 사용될 때가 아닌 정의될 때의 전역변수가 사용되어 진다. 이것이 정적 유효범위이다.
+        }
+        a();
+    </script>
+</body>
+
+</html>

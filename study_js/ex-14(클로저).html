@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //클로저(closure)는 내부함수가 외부함수의 맥락에 접근할 수 있는 것
+
+        function outter() { //외부함수
+            function inner() { //내부함수
+                var title = 'ohw hellow'
+                alert(title);
+            }
+        }
+        function outter() { //외부함수
+            var title = 'ohw hello'; //외부함수에 정의되어 있는 지역변수
+            function inner() { //내부함수
+                alert(title); //우선 inner함수 안에 있는 title이라는 변수를 찾은 다음 없는 경우 외부함수에 정의되어 있는 title을 찾기 때문에 ohw hello가 해당된다. 즉 내부함수는 외부함수의 지역변수에 접근할 수 있다.
+            }
+        }
+
+        function outter() {
+            var title = 'ohw hello';
+            return function () {
+                alert(title);
+            }//outter라는 함수는 위의 return으로 인해 실행 후  종료된 함수 
+        }
+        var inner = outter(); //실행 값은 return function(){alert(title);}
+        inner(); //실행 값은 alert(title);의 기능 밖에 없으나 외부함수 outter에 있는 변수 title의 값인 ohw hello가 출력되는 것이 자바스크립트의 특징
+
+        //27~32는 함수 선언 실제 실행은 33과 34번에서 이루어짐. 
+        //내부함수를 포함한 외부함수에 접근할 수 있을 뿐만 아니라 그 외부함수가 종류된 이후에도 내부함수를 통해서 접근할 수 있다. 이것이 클로저의 특징 
+
+        /*해석 : factory_movie라는 함수를 정의
+        그 함수는 두개의 객체를 리턴하고 있다. 객체를 속성값을 함수로 갖고 있기 때문에 get_title과 set_title은 메소드이다.
+        factory_movie라는 외부함수 안에 객체 소속 안의 내부 함수가 두개가 존재한다는 뜻
+        */
+        function factory_movie(title) {//factory_movie()의 첫번째 인자는 title
+            return {
+                get_title: function () {
+                    return title; //이 title이라는 값이 오는 곳은 외부함수에 있는 title에서 갖고올 수 있다.
+                },
+                set_title: function (_title) {
+                    title = _title
+                }
+            }
+        }
+        ghost = factory_movie('Ghost in the shell'); //'Ghost in the shell'이 factory_movie(title)의 title부분에 담겨지게 된다.
+        matrix = factory_movie('Matrix');
+
+        //두 개의 변수는 위에 있는 factory_movie함수에서 각자 다른 값을 갖고 있음.
+
+        alert(ghost.get_title()); //결과 값 Ghost in the shell
+        alert(matrix.get_title()); //결과 값 Matrix
+
+        ghost.set_title('공각기동대'); //ghost라는 변수에 set title이라는 메소드를 호출하고 인자를 공각기동대가 들어감
+
+        alert(ghost.get_title()); //결과 값 공각기동대
+        alert(matrix.get_title()); //결과 값 Matrix
+
+    </script>
+</body>
+
+</html>
