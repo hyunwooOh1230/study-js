@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //arguments라는 객체는 변수에 담긴 숨겨진 유사 배열이 있다. 배열과 비슷하지만 배열이 아니다.
+        //매개변수와 인자의 차이
+        // function a(arg){여기서 arg는 매개변수(값이 저장되는 변수. parameter)
+        // }
+        // a(1) => 여기서 1은 인자(변수에 들어가는 값.)
+
+        //arguments는 약속되어 있는 특수한 이름의 변수 명 저 변수 안에는 arguments라는 배열이 담겨져 있다. 
+        //arguments의 역할 사용자가 전달한 인자가 arguments안에 들어가 있음
+        //arguments의 활용
+        //1.이 객체를 포함한 이 함수가 몇개의 인자를 갖고 있는가.
+        //2.index값을 전달하는 것을 통해서 이 인자 값의 특정 자리수를 알아낼 수 있다.
+
+        function sum() {
+            var i, _sum = 0;
+            //사용자가 전달한 인자의 수 만큼 반복된다.
+            for (var i = 0; i < arguments.length; i++) {
+                document.write(i + ' : ' + arguments[i] + '<br />');
+                //_sum = _sum+arguments[i]
+                _sum += arguments[i];
+            }
+            return_sum;
+        }
+        document.write('resule :' + sum(1, 2, 3, 4));
+
+
+        function zero() {
+            console.log(
+                'zero.length', zero.length,
+                'arguments', arguments.length
+            );
+        }
+        zero(); // zero.length 0 arguments 0 이유 : 이 함수는 인자를 주지 않았기 때문에.
+
+        function one(arg1) {
+            console.log(
+                'one.length', one.length, //매개변수의 개수 체크
+                'arguments', arguments.length //인자의 개수 체크
+            );
+        }
+        one('val1', 'val2');  // one.length 1 arguments 2
+        //이유 : 매개변수는 하나 인자는 두개
+
+        function two(arg1, arg2) {
+            console.log(
+                'two.length', two.length,
+                'arguments', arguments.length
+            );
+        }
+        two('val1');  // two.length 2 arguments 1
+
+
+    </script>
+</body>
+
+</html>
