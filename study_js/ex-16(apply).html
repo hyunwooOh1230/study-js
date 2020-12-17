@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //함수를 호출하는 방법
+        //객체 - 속성, 메소드
+        //apply를 사용하는 이유 : 첫번째 인자가 null이 아닌 다른 값을 쓰여질 경우,
+        function sum(arg1, arg2) {
+            return arg1 + arg2;
+        }
+        alert(sum.apply(null, [1, 2]));
+        sum.apply // => function apply(){[native code]} 내장된 코드라서 보여줄 수 없음.
+        sum(1, 2); //3
+        sum.apply(null, [1, 2]); //3
+
+        a1 = { val1: 5, val2: 10, val3: 15 }
+        a2 = { v1: 10, v2: 30, v3: 50, v4: 100 }
+        function sum() {
+            var _sum = 0;
+            for (key in this) {//this는 현재 정의되어 있지 않는 상태. 호출할 때 정해진다.
+                _sum += this[key];
+            }
+            return _sum;
+        }
+        alert(sum.apply(a1)); //sum을 호출 할 때 a1이 this로 들어감. 결과 값 : 30
+        alert(sum.apply(a2)); //sum을 호출 할 때 a2가 this로 들어감. 결과 값 : 190
+
+    </script>
+</body>
+
+</html>
